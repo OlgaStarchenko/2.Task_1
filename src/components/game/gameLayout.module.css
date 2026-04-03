@@ -8,7 +8,7 @@
 }
 
 .container__list {
-	width: 395px;
+	width: 405px;
 	height: 600px;
 	background-image: url(/public/Notebook_sheet.jpg);
 	display: flex;

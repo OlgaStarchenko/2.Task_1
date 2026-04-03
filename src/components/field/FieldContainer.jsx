@@ -1,6 +1,5 @@
-import React from "react";
 import FieldLayout from "./FieldLayout";
 
-export default function FieldContainer() {
-	return <FieldLayout />;
+export default function FieldContainer({ field }) {
+	return <FieldLayout field={field} />;
 }

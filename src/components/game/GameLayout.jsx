@@ -2,7 +2,7 @@ import styles from "./gameLayout.module.css";
 import InformationContainer from "../information/InformationContainer";
 import FieldContainer from "../field/FieldContainer";
 
-export default function GameLayout() {
+export default function GameLayout({ field }) {
 	return (
 		<>
 			<div className={styles.container__table}>
@@ -11,7 +11,7 @@ export default function GameLayout() {
 						<InformationContainer />
 					</div>
 					<div>
-						<FieldContainer />
+						<FieldContainer field={field} />
 						<button className={styles.button__start_again}>
 							Start again
 						</button>

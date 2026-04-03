@@ -28,3 +28,13 @@
 	color: rgb(54, 54, 152);
 	font-size: 45px;
 }
+
+.green__text {
+	color: rgb(164, 164, 167);
+	font-size: 45px;
+}
+
+.green__label {
+	color: rgb(164, 164, 167);
+	border-bottom: 2px solid rgb(164, 164, 167);
+}

@@ -6,7 +6,7 @@ export function GameContainer() {
 	const [isGameEnded, setisGameEnded] = useState(false);
 	const [isDraw, setIsDraw] = useState(false);
 
-	const field = ["", "", "", "", "", "", "", "", ""];
+	const [field, setField] = useState(["", "", "", "", "", "", "", "", ""]);
 
-	return <GameLayout />;
+	return <GameLayout field={field} />;
 }
