@@ -8,5 +8,12 @@ export function GameContainer() {
 
 	const [field, setField] = useState(["", "", "", "", "", "", "", "", ""]);
 
-	return <GameLayout field={field} />;
+	return (
+		<GameLayout
+			field={field}
+			setField={setField}
+			currentPlayer={currentPlayer}
+			setCurrentPlayer={setCurrentPlayer}
+		/>
+	);
 }
