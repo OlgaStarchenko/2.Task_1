@@ -8,12 +8,16 @@ export function GameContainer() {
 
 	const [field, setField] = useState(["", "", "", "", "", "", "", "", ""]);
 
+	function restart() {
+		setField(["", "", "", "", "", "", "", "", ""]);
+	}
 	return (
 		<GameLayout
 			field={field}
 			setField={setField}
 			currentPlayer={currentPlayer}
 			setCurrentPlayer={setCurrentPlayer}
+			restart={restart}
 		/>
 	);
 }

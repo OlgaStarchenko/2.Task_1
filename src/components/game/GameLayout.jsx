@@ -7,6 +7,7 @@ export default function GameLayout({
 	setField,
 	currentPlayer,
 	setCurrentPlayer,
+	restart,
 }) {
 	return (
 		<>
@@ -27,7 +28,10 @@ export default function GameLayout({
 							currentPlayer={currentPlayer}
 							setCurrentPlayer={setCurrentPlayer}
 						/>
-						<button className={styles.button__start_again}>
+						<button
+							className={styles.button__start_again}
+							onClick={restart}
+						>
 							Start again
 						</button>
 					</div>
