@@ -8,6 +8,10 @@ export default function GameLayout({
 	currentPlayer,
 	setCurrentPlayer,
 	restart,
+	isDraw,
+	setIsDraw,
+	isGameEnded,
+	setIsGameEnded,
 }) {
 	return (
 		<>
@@ -19,6 +23,9 @@ export default function GameLayout({
 							setField={setField}
 							currentPlayer={currentPlayer}
 							setCurrentPlayer={setCurrentPlayer}
+							isDraw={isDraw}
+							setIsDraw={setIsDraw}
+							isGameEnded={isGameEnded}
 						/>
 					</div>
 					<div>
@@ -27,6 +34,9 @@ export default function GameLayout({
 							setField={setField}
 							currentPlayer={currentPlayer}
 							setCurrentPlayer={setCurrentPlayer}
+							isGameEnded={isGameEnded}
+							setIsGameEnded={setIsGameEnded}
+							setIsDraw={setIsDraw}
 						/>
 						<button
 							className={styles.button__start_again}

@@ -6,6 +6,14 @@ export default function InformationContainer({
 	setField,
 	currentPlayer,
 	setCurrentPlayer,
+	isDraw,
+	setIsDraw,
 }) {
-	return <InformationLayout />;
+	return (
+		<InformationLayout
+			isDraw={isDraw}
+			setIsDraw={setIsDraw}
+			currentPlayer={currentPlayer}
+		/>
+	);
 }

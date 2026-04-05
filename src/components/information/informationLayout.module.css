@@ -1,14 +1,23 @@
-.information__container {
+.information__top {
 	font-family: "Indie Flower", cursive;
 	font-weight: 400;
 	font-style: normal;
 	font-size: 35px;
 	margin-top: 20px;
-	gap: 60px;
+	gap: 100px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	row-gap: 3px;
 	place-items: center;
+}
+.information__bottom {
+	font-family: "Indie Flower", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 45px;
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
 }
 .red__label {
 	color: rgb(206, 36, 36);
@@ -22,6 +31,11 @@
 .red__text {
 	color: rgb(206, 36, 36);
 	font-size: 45px;
+}
+
+.black__text {
+	color: black;
+	font-size: 40px;
 }
 
 .blue__text {
