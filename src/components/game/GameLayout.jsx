@@ -1,8 +1,8 @@
 import styles from "./gameLayout.module.css";
-import InformationContainer from "../information/InformationContainer";
-import FieldContainer from "../field/FieldContainer";
+import { InformationContainer } from "../information/InformationContainer";
+import { FieldContainer } from "../field/FieldContainer";
 
-export default function GameLayout({
+export function GameLayout({
 	field,
 	setField,
 	currentPlayer,
@@ -12,6 +12,8 @@ export default function GameLayout({
 	setIsDraw,
 	isGameEnded,
 	setIsGameEnded,
+	winner,
+	setWinner,
 }) {
 	return (
 		<>
@@ -26,6 +28,8 @@ export default function GameLayout({
 							isDraw={isDraw}
 							setIsDraw={setIsDraw}
 							isGameEnded={isGameEnded}
+							winner={winner}
+							setWinner={setWinner}
 						/>
 					</div>
 					<div>
@@ -37,6 +41,8 @@ export default function GameLayout({
 							isGameEnded={isGameEnded}
 							setIsGameEnded={setIsGameEnded}
 							setIsDraw={setIsDraw}
+							winner={winner}
+							setWinner={setWinner}
 						/>
 						<button
 							className={styles.button__start_again}

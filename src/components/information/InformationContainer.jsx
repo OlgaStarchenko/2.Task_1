@@ -1,19 +1,18 @@
 import React from "react";
-import InformationLayout from "./InformationLayout";
+import { InformationLayout } from "./InformationLayout";
 
-export default function InformationContainer({
-	field,
-	setField,
+export function InformationContainer({
 	currentPlayer,
-	setCurrentPlayer,
 	isDraw,
 	setIsDraw,
+	winner,
 }) {
 	return (
 		<InformationLayout
 			isDraw={isDraw}
 			setIsDraw={setIsDraw}
 			currentPlayer={currentPlayer}
+			winner={winner}
 		/>
 	);
 }

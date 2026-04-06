@@ -1,10 +1,6 @@
 import styles from "./informationLayout.module.css";
 
-export default function InformationLayout({
-	isDraw,
-	currentPlayer,
-	isGameEnded,
-}) {
+export function InformationLayout({ isDraw, currentPlayer, winner }) {
 	return (
 		<>
 			<div className={styles.information__top}>
@@ -13,15 +9,17 @@ export default function InformationLayout({
 			</div>
 
 			<div className={styles.information__bottom}>
-				{isDraw && <label className={styles.black__text}>Draw</label>}
+				{isDraw ? (
+					<label className={styles.black__text}>Draw</label>
+				) : null}
 
-				{!isDraw && isGameEnded ? (
+				{winner && (
 					<label className={styles.black__text}>
 						{`Win player ${currentPlayer}!`}
 					</label>
-				) : null}
+				)}
 
-				{!isGameEnded && !isDraw ? (
+				{!winner && !isDraw ? (
 					<label
 						className={styles.black__text}
 					>{`Walks player ${currentPlayer}...`}</label>

@@ -1,6 +1,6 @@
-import FieldLayout from "./FieldLayout";
+import { FieldLayout } from "./FieldLayout";
 
-export default function FieldContainer({
+export function FieldContainer({
 	field,
 	setField,
 	currentPlayer,
@@ -8,6 +8,7 @@ export default function FieldContainer({
 	setIsGameEnded,
 	isGameEnded,
 	setIsDraw,
+	setWinner,
 }) {
 	const WIN_COMBINATIONS = [
 		[0, 1, 2],
@@ -30,6 +31,8 @@ export default function FieldContainer({
 
 		const winner = checkWinner(newField);
 		if (winner) {
+			setWinner(winner);
+			setIsGameEnded(true);
 			setIsDraw(false);
 
 			return winner;

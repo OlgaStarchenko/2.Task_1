@@ -1,6 +1,6 @@
 import styles from "./fieldLayout.module.css";
 
-export default function FieldLayout({ field, makeMove, currentPlayer }) {
+export function FieldLayout({ field, makeMove }) {
 	function getClassName(index) {
 		let className = styles.button;
 		if (index === 1 || index === 7) {

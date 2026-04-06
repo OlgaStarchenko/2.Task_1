@@ -1,11 +1,11 @@
 import { useState } from "react";
-import GameLayout from "./GameLayout";
+import { GameLayout } from "./GameLayout";
 
 export function GameContainer() {
 	const [currentPlayer, setCurrentPlayer] = useState("X");
 	const [isGameEnded, setIsGameEnded] = useState(false);
 	const [isDraw, setIsDraw] = useState(false);
-
+	const [winner, setWinner] = useState(null);
 	const [field, setField] = useState(["", "", "", "", "", "", "", "", ""]);
 
 	function restart() {
@@ -13,6 +13,7 @@ export function GameContainer() {
 		setIsGameEnded(false);
 		setIsDraw(false);
 		setField(["", "", "", "", "", "", "", "", ""]);
+		setWinner(null);
 	}
 	return (
 		<GameLayout
@@ -25,6 +26,8 @@ export function GameContainer() {
 			setIsDraw={setIsDraw}
 			isGameEnded={isGameEnded}
 			setIsGameEnded={setIsGameEnded}
+			winner={winner}
+			setWinner={setWinner}
 		/>
 	);
 }
