@@ -9,11 +9,17 @@ export function InformationLayout({ isDraw, currentPlayer, winner }) {
 
 			<div className={styles.information__message}>
 				{isDraw ? (
-					<label className={styles.red__text}>Draw</label>
+					<label className={styles.black__text}>Draw</label>
 				) : null}
 
 				{winner && (
-					<label className={styles.red__text}>
+					<label
+						className={
+							winner === "O"
+								? styles.red__text
+								: styles.blue__text
+						}
+					>
 						{`Win player ${currentPlayer}!`}
 					</label>
 				)}

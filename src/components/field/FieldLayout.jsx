@@ -1,6 +1,6 @@
 import styles from "./fieldLayout.module.css";
 
-export function FieldLayout({ field, makeMove, winLine }) {
+export function FieldLayout({ field, makeMove, winLine, winner }) {
 	function getClassName(index) {
 		let className = styles.button;
 		if (index === 1 || index === 7) {
@@ -14,10 +14,9 @@ export function FieldLayout({ field, makeMove, winLine }) {
 		}
 
 		return winLine.includes(index)
-			? `${className} ${styles.red__text}`
+			? `${className} ${winner === "O" ? styles.red__text : styles.blue__text}`
 			: className;
 	}
-	console.log(field);
 
 	return (
 		<div className={styles.field__container}>

@@ -15,15 +15,15 @@
 	font-style: normal;
 }
 .border__all {
-	border: 4px solid rgb(54, 54, 152);
+	border: 4px solid black;
 }
 .border__left__right {
-	border-right: 4px solid rgb(54, 54, 152);
-	border-left: 4px solid rgb(54, 54, 152);
+	border-right: 4px solid black;
+	border-left: 4px solid black;
 }
 .border__top__bottom {
-	border-top: 4px solid rgb(54, 54, 152);
-	border-bottom: 4px solid rgb(54, 54, 152);
+	border-top: 4px solid black;
+	border-bottom: 4px solid black;
 }
 .O {
 	color: rgb(206, 36, 36);
@@ -35,4 +35,8 @@
 
 .red__text {
 	color: rgb(206, 36, 36);
+}
+
+.blue__text {
+	color: rgb(54, 54, 152);
 }

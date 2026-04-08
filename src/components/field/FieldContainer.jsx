@@ -11,6 +11,7 @@ export function FieldContainer({
 	setWinner,
 	winLine,
 	setWinLine,
+	winner,
 }) {
 	const WIN_COMBINATIONS = [
 		[0, 1, 2],
@@ -65,7 +66,7 @@ export function FieldContainer({
 		<FieldLayout
 			field={field}
 			makeMove={makeMove}
-			currentPlayer={currentPlayer}
+			winner={winner}
 			winLine={winLine}
 		/>
 	);
