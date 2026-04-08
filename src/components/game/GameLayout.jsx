@@ -23,15 +23,10 @@ export function GameLayout({
 				<div className={styles.container__list}>
 					<div>
 						<InformationContainer
-							field={field}
-							setField={setField}
 							currentPlayer={currentPlayer}
-							setCurrentPlayer={setCurrentPlayer}
 							isDraw={isDraw}
 							setIsDraw={setIsDraw}
-							isGameEnded={isGameEnded}
 							winner={winner}
-							setWinner={setWinner}
 						/>
 					</div>
 					<div>
