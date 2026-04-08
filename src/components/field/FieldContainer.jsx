@@ -9,6 +9,8 @@ export function FieldContainer({
 	isGameEnded,
 	setIsDraw,
 	setWinner,
+	winLine,
+	setWinLine,
 }) {
 	const WIN_COMBINATIONS = [
 		[0, 1, 2],
@@ -52,6 +54,7 @@ export function FieldContainer({
 			const [a, b, c] = combination;
 
 			if (field[a] && field[a] === field[b] && field[a] === field[c]) {
+				setWinLine(combination);
 				return field[a];
 			}
 		}
@@ -63,6 +66,7 @@ export function FieldContainer({
 			field={field}
 			makeMove={makeMove}
 			currentPlayer={currentPlayer}
+			winLine={winLine}
 		/>
 	);
 }

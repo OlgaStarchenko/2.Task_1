@@ -7,6 +7,7 @@ export function GameContainer() {
 	const [isDraw, setIsDraw] = useState(false);
 	const [winner, setWinner] = useState(null);
 	const [field, setField] = useState(["", "", "", "", "", "", "", "", ""]);
+	const [winLine, setWinLine] = useState([]);
 
 	function restart() {
 		setCurrentPlayer("X");
@@ -14,6 +15,7 @@ export function GameContainer() {
 		setIsDraw(false);
 		setField(["", "", "", "", "", "", "", "", ""]);
 		setWinner(null);
+		setWinLine([]);
 	}
 	return (
 		<GameLayout
@@ -28,6 +30,8 @@ export function GameContainer() {
 			setIsGameEnded={setIsGameEnded}
 			winner={winner}
 			setWinner={setWinner}
+			winLine={winLine}
+			setWinLine={setWinLine}
 		/>
 	);
 }

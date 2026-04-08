@@ -14,6 +14,8 @@ export function GameLayout({
 	setIsGameEnded,
 	winner,
 	setWinner,
+	winLine,
+	setWinLine,
 }) {
 	return (
 		<>
@@ -43,6 +45,8 @@ export function GameLayout({
 							setIsDraw={setIsDraw}
 							winner={winner}
 							setWinner={setWinner}
+							winLine={winLine}
+							setWinLine={setWinLine}
 						/>
 						<button
 							className={styles.button__start_again}
