@@ -1,4 +1,5 @@
 import { FieldLayout } from "./FieldLayout";
+import PropTypes from "prop-types";
 
 export function FieldContainer({
 	field,
@@ -12,7 +13,23 @@ export function FieldContainer({
 	winLine,
 	setWinLine,
 	winner,
+	isDraw,
 }) {
+	FieldContainer.propsTypes = {
+		field: PropTypes.arrayOf(PropTypes.string).isRequired,
+		setField: PropTypes.func.isRequired,
+		currentPlayer: PropTypes.string.isRequired,
+		setCurrentPlayer: PropTypes.func.isRequired,
+		setIsGameEnded: PropTypes.func.isRequired,
+		setIsDraw: PropTypes.func.isRequired,
+		isGameEnded: PropTypes.bool.isRequired,
+		setWinner: PropTypes.func.isRequired,
+		winLine: PropTypes.arrayOf(PropTypes.number).isRequired,
+		setWinLine: PropTypes.func.isRequired,
+		winner: PropTypes.string.isRequired,
+		isDraw: PropTypes.bool.isRequired,
+	};
+
 	const WIN_COMBINATIONS = [
 		[0, 1, 2],
 		[3, 4, 5],
@@ -68,6 +85,7 @@ export function FieldContainer({
 			makeMove={makeMove}
 			winner={winner}
 			winLine={winLine}
+			isDraw={isDraw}
 		/>
 	);
 }

@@ -1,6 +1,7 @@
 import styles from "./gameLayout.module.css";
 import { InformationContainer } from "../information/InformationContainer";
 import { FieldContainer } from "../field/FieldContainer";
+import PropTypes from "prop-types";
 
 export function GameLayout({
 	field,
@@ -17,6 +18,20 @@ export function GameLayout({
 	winLine,
 	setWinLine,
 }) {
+	GameLayout.propTypes = {
+		field: PropTypes.arrayOf(PropTypes.string).isRequired,
+		setField: PropTypes.func.isRequired,
+		currentPlayer: PropTypes.string.isRequired,
+		setCurrentPlayer: PropTypes.func.isRequired,
+		restart: PropTypes.func.isRequired,
+		isDraw: PropTypes.bool.isRequired,
+		setIsDraw: PropTypes.func.isRequired,
+		isGameEnded: PropTypes.bool.isRequired,
+		winner: PropTypes.string.isRequired,
+		setWinner: PropTypes.func.isRequired,
+		winLine: PropTypes.arrayOf(PropTypes.number).isRequired,
+		setWinLine: PropTypes.func.isRequired,
+	};
 	return (
 		<>
 			<div className={styles.container__table}>
@@ -42,6 +57,7 @@ export function GameLayout({
 							setWinner={setWinner}
 							winLine={winLine}
 							setWinLine={setWinLine}
+							isDraw={isDraw}
 						/>
 						<button
 							className={styles.button__start_again}

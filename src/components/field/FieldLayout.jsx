@@ -1,8 +1,18 @@
 import styles from "./fieldLayout.module.css";
+import PropTypes from "prop-types";
 
-export function FieldLayout({ field, makeMove, winLine, winner }) {
+export function FieldLayout({ field, makeMove, winLine, winner, isDraw }) {
+	FieldLayout.propTypes = {
+		field: PropTypes.arrayOf(PropTypes.string).isRequired,
+		makeMove: PropTypes.func.isRequired,
+		winLine: PropTypes.arrayOf(PropTypes.number).isRequired,
+		winner: PropTypes.string.isRequired,
+		isDraw: PropTypes.bool.isRequired,
+	};
+
 	function getClassName(index) {
 		let className = styles.button;
+
 		if (index === 1 || index === 7) {
 			className = `${styles.button} ${styles.border__left__right}`;
 		}
@@ -23,7 +33,11 @@ export function FieldLayout({ field, makeMove, winLine, winner }) {
 			{field.map((player, index) => (
 				<button
 					key={index}
-					className={getClassName(index)}
+					className={
+						isDraw
+							? `${getClassName(index)} ${styles.green__text}`
+							: getClassName(index)
+					}
 					onClick={() => makeMove(index)}
 				>
 					{player}
