@@ -2,22 +2,9 @@ import styles from "./gameLayout.module.css";
 import { InformationContainer } from "../information/InformationContainer";
 import { FieldContainer } from "../field/FieldContainer";
 import PropTypes from "prop-types";
+import { Store } from "../../store";
 
-export function GameLayout({
-	field,
-	setField,
-	currentPlayer,
-	setCurrentPlayer,
-	restart,
-	isDraw,
-	setIsDraw,
-	isGameEnded,
-	setIsGameEnded,
-	winner,
-	setWinner,
-	winLine,
-	setWinLine,
-}) {
+export function GameLayout() {
 	GameLayout.propTypes = {
 		field: PropTypes.arrayOf(PropTypes.string).isRequired,
 		setField: PropTypes.func.isRequired,
@@ -37,31 +24,15 @@ export function GameLayout({
 			<div className={styles.container__table}>
 				<div className={styles.container__list}>
 					<div>
-						<InformationContainer
-							currentPlayer={currentPlayer}
-							isDraw={isDraw}
-							setIsDraw={setIsDraw}
-							winner={winner}
-						/>
+						<InformationContainer />
 					</div>
 					<div>
-						<FieldContainer
-							field={field}
-							setField={setField}
-							currentPlayer={currentPlayer}
-							setCurrentPlayer={setCurrentPlayer}
-							isGameEnded={isGameEnded}
-							setIsGameEnded={setIsGameEnded}
-							setIsDraw={setIsDraw}
-							winner={winner}
-							setWinner={setWinner}
-							winLine={winLine}
-							setWinLine={setWinLine}
-							isDraw={isDraw}
-						/>
+						<FieldContainer />
 						<button
 							className={styles.button__start_again}
-							onClick={restart}
+							onClick={Store.dispatch({
+								type: "RESTART_GAME",
+							})}
 						>
 							Start again
 						</button>

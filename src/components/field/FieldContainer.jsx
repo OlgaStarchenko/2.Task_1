@@ -1,20 +1,8 @@
+import { Store } from "../../store";
 import { FieldLayout } from "./FieldLayout";
 import PropTypes from "prop-types";
 
-export function FieldContainer({
-	field,
-	setField,
-	currentPlayer,
-	setCurrentPlayer,
-	setIsGameEnded,
-	isGameEnded,
-	setIsDraw,
-	setWinner,
-	winLine,
-	setWinLine,
-	winner,
-	isDraw,
-}) {
+export function FieldContainer() {
 	FieldContainer.propsTypes = {
 		field: PropTypes.arrayOf(PropTypes.string).isRequired,
 		setField: PropTypes.func.isRequired,
@@ -41,30 +29,53 @@ export function FieldContainer({
 		[2, 4, 6],
 	];
 
+	const { field, isGameEnded, currentPlayer } = Store.getState();
+
 	function makeMove(index) {
 		if (field[index] !== "" || isGameEnded) return;
 
 		const newField = [...field];
 		newField[index] = currentPlayer;
 
-		setField(newField);
+		Store.dispatch({
+			type: "SET_FIELD",
+			payload: newField,
+		});
 
 		const winner = checkWinner(newField);
 		if (winner) {
-			setWinner(winner);
-			setIsGameEnded(true);
-			setIsDraw(false);
+			Store.dispatch({
+				type: "SET_WINNER",
+				payload: winner,
+			});
+
+			Store.dispatch({
+				type: "SET_IS_GAME_ENDED",
+				payload: true,
+			});
+
+			Store.dispatch({
+				type: "SET_IS_DRAW",
+				payload: false,
+			});
 
 			return winner;
 		}
 
 		const isDraw = newField.every((item) => item !== "");
 		if (isDraw) {
-			setIsDraw(true);
+			Store.dispatch({
+				type: "SET_IS_DRAW",
+				payload: true,
+			});
+
 			return;
 		}
 
-		setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
+		Store.dispatch({
+			type: "SET_CURRENT_PLAYER",
+			payload: currentPlayer === "X" ? "O" : "X",
+		});
 	}
 
 	function checkWinner(field) {
@@ -72,20 +83,16 @@ export function FieldContainer({
 			const [a, b, c] = combination;
 
 			if (field[a] && field[a] === field[b] && field[a] === field[c]) {
-				setWinLine(combination);
+				Store.dispatch({
+					type: "SET_WIN_LINE",
+					payload: combination,
+				});
+
 				return field[a];
 			}
 		}
 		return null;
 	}
 
-	return (
-		<FieldLayout
-			field={field}
-			makeMove={makeMove}
-			winner={winner}
-			winLine={winLine}
-			isDraw={isDraw}
-		/>
-	);
+	return <FieldLayout makeMove={makeMove} />;
 }

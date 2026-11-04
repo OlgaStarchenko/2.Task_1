@@ -1,12 +1,15 @@
+import { Store } from "../../store";
 import styles from "./informationLayout.module.css";
 import PropTypes from "prop-types";
 
-export function InformationLayout({ isDraw, currentPlayer, winner }) {
+export function InformationLayout() {
 	InformationLayout.propsTypes = {
 		currentPlayer: PropTypes.string.isRequired,
 		isDraw: PropTypes.func.isRequired,
 		winner: PropTypes.string.isRequired,
 	};
+
+	const { isDraw, winner, currentPlayer } = Store.getState();
 
 	return (
 		<>

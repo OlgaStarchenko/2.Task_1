@@ -1,7 +1,8 @@
+import { Store } from "../../store";
 import styles from "./fieldLayout.module.css";
 import PropTypes from "prop-types";
 
-export function FieldLayout({ field, makeMove, winLine, winner, isDraw }) {
+export function FieldLayout({ makeMove }) {
 	FieldLayout.propTypes = {
 		field: PropTypes.arrayOf(PropTypes.string).isRequired,
 		makeMove: PropTypes.func.isRequired,
@@ -9,6 +10,8 @@ export function FieldLayout({ field, makeMove, winLine, winner, isDraw }) {
 		winner: PropTypes.string.isRequired,
 		isDraw: PropTypes.bool.isRequired,
 	};
+
+	const { winLine, winner, field, isDraw } = Store.getState();
 
 	function getClassName(index) {
 		let className = styles.button;
