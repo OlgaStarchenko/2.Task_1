@@ -6,7 +6,7 @@ export const connect = (store) => {
 
 		useEffect(() => {
 			const unsubscribe = store.subscribe(() =>
-				setUpdate((prev) => !prev),
+				setUpdate((prev) => prev + 1),
 			);
 			return unsubscribe;
 		}, []);

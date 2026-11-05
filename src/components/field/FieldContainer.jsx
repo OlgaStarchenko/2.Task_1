@@ -1,9 +1,12 @@
+import { useAppStore } from "../../my-redux/useAppStore";
 import { Store } from "../../store";
 import { FieldLayout } from "./FieldLayout";
 import PropTypes from "prop-types";
 
 export function FieldContainer() {
-	FieldContainer.propsTypes = {
+	const state = useAppStore();
+
+	FieldContainer.propTypes = {
 		field: PropTypes.arrayOf(PropTypes.string).isRequired,
 		setField: PropTypes.func.isRequired,
 		currentPlayer: PropTypes.string.isRequired,
@@ -29,7 +32,7 @@ export function FieldContainer() {
 		[2, 4, 6],
 	];
 
-	const { field, isGameEnded, currentPlayer } = Store.getState();
+	const { field, isGameEnded, currentPlayer } = state;
 
 	function makeMove(index) {
 		if (field[index] !== "" || isGameEnded) return;

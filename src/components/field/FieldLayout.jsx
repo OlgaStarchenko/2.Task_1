@@ -1,4 +1,4 @@
-import { Store } from "../../store";
+import { useAppStore } from "../../my-redux/useAppStore";
 import styles from "./fieldLayout.module.css";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,7 @@ export function FieldLayout({ makeMove }) {
 		isDraw: PropTypes.bool.isRequired,
 	};
 
-	const { winLine, winner, field, isDraw } = Store.getState();
+	const { winLine, winner, field, isDraw } = useAppStore();
 
 	function getClassName(index) {
 		let className = styles.button;

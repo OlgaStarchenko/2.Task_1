@@ -1,4 +1,4 @@
-import { Store } from "../../store";
+import { useAppStore } from "../../my-redux/useAppStore";
 import styles from "./informationLayout.module.css";
 import PropTypes from "prop-types";
 
@@ -9,7 +9,8 @@ export function InformationLayout() {
 		winner: PropTypes.string.isRequired,
 	};
 
-	const { isDraw, winner, currentPlayer } = Store.getState();
+	const state = useAppStore();
+	const { isDraw, winner, currentPlayer } = state;
 
 	return (
 		<>

@@ -30,9 +30,11 @@ export function GameLayout() {
 						<FieldContainer />
 						<button
 							className={styles.button__start_again}
-							onClick={Store.dispatch({
-								type: "RESTART_GAME",
-							})}
+							onClick={() =>
+								Store.dispatch({
+									type: "RESTART_GAME",
+								})
+							}
 						>
 							Start again
 						</button>
